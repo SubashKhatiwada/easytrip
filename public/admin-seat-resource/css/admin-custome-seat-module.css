@@ -1,0 +1,41 @@
+*, ::after, ::before {
+    box-sizing: content-box;
+}
+
+body {
+	font-family: 'Lato', sans-serif;
+}
+
+.wrapper {
+	width: 100%;
+	text-align: center;
+}
+.container {
+	margin: 50px auto 50px;
+	
+	text-align: left;
+}
+h2 {
+  width: 105%;
+  margin-bottom: 8px;
+  background-color: hsla(237, 19%, 66%, 0.15);
+  color: #5f5f50;
+  text-align: center;
+  font-size: 24px;
+  border-radius: 5px;
+}
+.form-group{
+  padding-right:15px;
+}
+.message-container{
+  margin: 20px auto -26px;
+  width: 45%;
+}
+/* @media screen and (max-width:776px) {
+  div.seatCharts-container {
+      width: 200px;
+      padding: 10px 150px;
+      float: left;
+      min-height: 370px;
+  }
+} */

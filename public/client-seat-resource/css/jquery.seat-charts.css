@@ -1,0 +1,163 @@
+*, ::after, ::before {
+    box-sizing: content-box;
+}
+
+
+body {
+	font-family: 'Lato', sans-serif;
+}
+
+a {
+	color: default;
+}
+
+.wrapper {
+	width: 100%;
+	text-align: center;
+}
+.container {
+	margin: 50px auto;
+	width: 500px;
+	text-align: left;
+}
+.booking-details {
+	float: left;
+  padding-top: 5px;
+	text-align: left;
+	margin-left: 35px;
+	font-size: 12px;
+	position: relative;
+	height: 400px;
+}
+
+.booking-details h2 {
+	margin: 25px 0 20px 0;
+	font-size: 17px;
+  font-weight: bold;
+}
+
+.booking-details h3 {
+	margin: 5px 5px 0 0;
+	font-size: 14px;
+}
+
+
+
+div.seatCharts-row:after {
+	clear: both;
+}
+
+ul.seatCharts-legendList {
+	list-style: none;
+}
+
+li.seatCharts-legendItem {
+	margin-top: 10px;
+	line-height: 2;
+}
+
+.front-indicator {
+	width: 155px;
+	margin: 5px 32px 15px 32px;
+  background-color: hsla(237, 19%, 66%, 0.15);
+  color: #5f5f50;
+	text-align: center;
+	padding: 3px;
+	border-radius: 1px;
+}
+
+/* CSS for Seat Cell  */
+div.seatCharts-cell {
+  margin:3px;
+	height: 27px;
+	width: 27px;
+	line-height: 27px;
+  float: left;
+  text-align: center;
+  outline: none;
+  font-size: 10px;
+  border-radius: 5px;
+}
+
+div.seatCharts-seat {
+	/* color: #FFFFFF; */
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  cursor: pointer;
+}
+
+div.seatCharts-row {
+	height: 45px;
+}
+
+div.seatCharts-container {
+	border-right: 1px dotted #adadad;
+	width: 200px;
+	padding: 20px;
+	float: left;
+  min-height:370px
+}
+
+
+/* CSS for blank space */
+div.seatCharts-space {
+	background-color: white;
+}
+
+/* CSS for available seats */
+div.seatCharts-seat.available {
+	/* background-color: #80ade4; */
+  background-image: url(img/available_seat.png);
+  background-size: 27px;
+}
+
+/* Focus on Mouse Movement  */
+div.seatCharts-seat.focused {
+	/* background-color: #3a78c3; */
+  background-image: url(img/available_seat.png);
+  background-size: 30px;
+}
+
+/* CSS for Selected Seat */
+div.seatCharts-seat.selected {
+	/* background-color: #3a78c3; */
+  background-image: url(img/selected_seat.png);
+  background-size: 30px;
+
+}
+
+/* Css for Unavailable seat */
+div.seatCharts-seat.seatCharts-cell.unavailable{
+    /* background-color: #39374a; */
+    background-image: url(img/unavailable_seat.png);
+    background-size: 29px;
+    cursor: not-allowed;
+}
+
+#selected-seats {
+	max-height: 90px;
+	overflow-y: scroll;
+	overflow-x: none;
+	width: 170px;
+}
+
+div.seatCharts-legend {
+	padding-left: 0px;
+	position: absolute;
+	bottom: 0px;
+}
+
+ul.seatCharts-legendList {
+	padding-left: 0px;
+}
+
+span.seatCharts-legendDescription {
+	margin-left: 5px;
+	line-height: 30px;
+}
+
+.proceed-button {
+	display: block;
+	margin: 10px 0;
+	font-size: 14px;
+}
