@@ -16,7 +16,10 @@ $(document).on('click', '.create-modal', function () {
                     'bus_number': $('input[name=bus_number]').val(),
                     'bus_name': $('input[name=bus_name]').val(),
                     'bus_type': $('input[name=bus_type]').val(),
-                    'number_of_seats': $('input[name=number_of_seats]').val()
+                    // 'number_of_seats': $('input[name=number_of_seats]').val()
+					'number_of_seats': $('#number_of_seats').val()
+
+					
                 },
                 success: function (data) {
                     console.log(data);
@@ -273,8 +276,23 @@ $(document).on('click', '.create-modal', function () {
 						<div class="form-group">
 								<span class="error4 text-left text text-danger hidden"></span><br>
 							<label class="control-label" for="body">No Of Seats:</label>
-								<input type="text" class="form-control" id="number_of_seats" name="number_of_seats"
-									   required>
+								{{-- <input type="text" class="form-control" id="number_of_seats" name="number_of_seats"
+									   required> --}}
+									   <select name="number_of_seats" id="number_of_seats" class="form-control">
+										<option value="" selected disabled hidden>Select total number of seats</option>
+										<option value="17">17</option>
+										<option value="21">21</option>
+										<option value="25">25</option>
+										<option value="29">29</option>
+										<option value="33">33</option>
+										<option value="37">37</option>
+										<option value="41">41</option>
+										<option value="45">45</option>
+										<option value="49">49</option>
+										<option value="53">53</option>
+										<option value="57">57</option>
+										<option value="61">61</option>
+									   </select>
 						</div>
 					</form>
 				</div>

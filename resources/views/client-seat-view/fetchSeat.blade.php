@@ -1,8 +1,8 @@
 
 
 <?php
-foreach ($seat_info as $seat_info){
-    echo $seat_info->seat_id;
+foreach ($booked_seat as $booked_seat){
+    echo $booked_seat->seat_id;
     echo ",";
 }
 ?>

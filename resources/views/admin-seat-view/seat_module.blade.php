@@ -55,7 +55,7 @@
                                 <option value="">Bus Number</option>
                                 @foreach($bus_number as $bus_number)
                                 <option value="{{$bus_number->tbl_bus_details_id}}">
-                                    {{$bus_number->bus_name}}({{$bus_number->bus_number}})
+                                    {{$bus_number->bus_name}}({{$bus_number->bus_number}})({{$bus_number->number_of_seats}})
                                 </option>
                                 @endforeach
                             </select>
@@ -76,6 +76,8 @@
                                 <option value="53">53</option>
                                 <option value="57">57</option>
                                 <option value="61">61</option>
+                              
+                             
                             </select>
                         </div>
                         <div class="form-group checkbox">

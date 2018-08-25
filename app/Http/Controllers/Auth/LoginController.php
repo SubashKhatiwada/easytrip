@@ -37,14 +37,17 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest',['except'=>['logout','userLogout']]);
+        $this->middleware('guest:user',['except'=>['logout']]);
     }
 
 
 
 
-    public function userLogout(){
-        Auth::guard()->logout();
+    public function logout(Request $request){
+        // Auth::guard('user')->logout();
+        Auth::guard('user')->logout();
+        // $request->session()->invalidate();
+
         return redirect('/');
     }
     protected function credentials(Request $request)
@@ -54,21 +57,19 @@ class LoginController extends Controller
 
 
 
-//    public function login(Request $request){
-//
-//        //validate the input
-//        $this->validate($request,[
-//            'email'=>'required|email',
-//            'password'=>'required|min:6'
-//        ]);
-//
-//        //attempts to log the user in
-//
-//        if (Auth::guard('user')->attempt(['email'=>$request->email,'password'=>$request->password],$request->remember)){
-//            return redirect()->intended(route('home'));
-//        }
-//        else{
-//            return redirect()->back()->withInput($request->only('email','remember'));
-//        }
-//    }
+   public function login(Request $request){
+
+       $this->validate($request,[
+           'email'=>'required|email',
+           'password'=>'required|min:6'
+       ]);
+
+
+       if (Auth::guard('user')->attempt(['email'=>$request->email,'password'=>$request->password],$request->remember)){
+           return redirect()->intended(route('home'));
+       }
+       else{
+           return redirect()->back()->withInput($request->only('email','remember'));
+       }
+   }
 }

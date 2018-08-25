@@ -1,4 +1,7 @@
+<!-- <?php
+var_dump($seat_map);
 
+?> -->
 
 @extends('layouts.app')
 @section('css')
@@ -62,18 +65,23 @@
             var $cart = $('#selected-seats');
             var $counter = $('#counter');
             var $total = $('#total');
-            var $seatPattern = [
-                'hh_hh',
-                'hh_hh',
-                'hh_hh',
-                'hh_hh',
-                'll_ll',
-                'hh_hh',
-                'hh_hh',
-                'hh_hh',
-                'hh_hh',
-                'lllll',
-            ];
+            var $seatPatternstring = "{{$seat_map}}";
+            // var $seatPattern = $seat_map;
+            console.log($seatPatternstring);
+            var $seatPattern = $seatPatternstring.split(',');
+            console.log($seatPattern);
+            // var $seatPattern = [
+            //     'hh_hh',
+            //     'hh_hh',
+            //     'hh_hh',
+            //     'hh_hh',
+            //     'll_ll',
+            //     'hh_hh',
+            //     'hh_hh',
+            //     'hh_hh',
+            //     'hh_hh',
+            //     'lllll',
+            // ];
             var sc = $('#seat-map').seatCharts({
                 map: $seatPattern,
 
@@ -170,7 +178,7 @@
 
                 $.ajax({
                     type: 'get',
-                    url: '/seat',
+                    url: '/fetchseat',
                     success: function (response) {
                         $.get('/fetchseat', function ($unavailableSeat) {
                            

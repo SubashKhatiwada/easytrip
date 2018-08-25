@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/login', 'Auth\LoginController@login');
-Route::post('/userLogout', 'Auth\LoginController@userLogout')->name('user.logout');
+Route::post('/userlogout', 'Auth\LoginController@logout')->name('userlogout');
 
 Route::prefix('admin')->group(function () {
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
@@ -44,7 +44,7 @@ Route::post('/updateschedule', 'ScheduleController@updateSchedule')->name('sched
 
 Route::get('/adminseat', 'AdminSeatController@index')->name('adminseat');
 Route::post('/adminseatlayout','AdminSeatController@addSeatLayout')->name('add.bus.seat.layout');
-Route::get('/seat', 'ClientSeatController@index')->name('client.seat');
+Route::get('/seat/{value}', 'ClientSeatController@index')->name('client.seat');
 Route::get('/fetchseat', 'ClientSeatController@fetch')->name('client.seat.book');
 
 Route::post('/search', 'SearchController@searchBus')->name('search.bus');

@@ -23,11 +23,11 @@ class RedirectIfAuthenticated
                     return redirect()->route('admin.dashboard');
                 }
                 break;
-//                case 'user':
-//                if (Auth::guard($guard)->check()){
-//                    return redirect()->route('login');
-//                }
-//                break;
+               case 'user':
+               if (Auth::guard($guard)->check()){
+                   return redirect()->route('home');
+               }
+               break;
 //
             default:
                         if (Auth::guard($guard)->check()) {
@@ -35,12 +35,6 @@ class RedirectIfAuthenticated
         }
 
         }
-
-
-
-
-
-
         return $next($request);
     }
 }

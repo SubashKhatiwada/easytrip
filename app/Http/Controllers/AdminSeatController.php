@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\AdminSeatLayout;
 use App\Bus;
 use Illuminate\Http\Request;
+// use Illuminate\Support\Facades\DB;
+
 
 class AdminSeatController extends Controller
 {
@@ -19,7 +21,9 @@ class AdminSeatController extends Controller
     public function index()
     {
         $bus_number = Bus::all();
-        return view('admin-seat-view.seat_module', compact('bus_number'));
+        // $bus_number=DB::table('tbl_bus_details')->get();
+
+        return view('admin-seat-view.seat_module', compact('bus_number','bus'));
     }
 
 
