@@ -1,7 +1,8 @@
-<!-- <?php
+<?php
 var_dump($seat_map);
+var_dump($trip_id);
 
-?> -->
+?>
 
 @extends('layouts.app')
 @section('css')
@@ -41,6 +42,7 @@ var_dump($seat_map);
             
                 <h3> Selected Seats :<input type=number id="counter" name="counter" value="0"
                                             style="border:0px solid;width:30px;" readonly></input></h3>
+                <input type="hidden" name="trip_id" value="{{$trip_id}}">
 
                 <select class="select form-control" style="display:block;font-size:12px" id="selected-seats"
                         name="seat[]" multiple readonly></select>
@@ -61,6 +63,7 @@ var_dump($seat_map);
 
     <script type="text/javascript">
         var firstSeatLabel = 1;
+        var trip_id = "{{$trip_id}}";
         $(document).ready(function () {
             var $cart = $('#selected-seats');
             var $counter = $('#counter');
@@ -122,6 +125,7 @@ var_dump($seat_map);
                             .attr('id', 'cart-item-' + this.settings.id)
                             .attr('value', this.settings.id + "|" + this.settings.data.price)
                             .data('seatId', this.settings.id)
+                            // .data('tripId',trip_id)
                             .appendTo($cart);
                         console.log(this.settings.id);
 
@@ -174,13 +178,13 @@ var_dump($seat_map);
             setInterval(function () {
                 var $unavailableSeat;
                 var unavailableSeatArray = [];
-
+                // var trip_id = "{{$trip_id}}";
 
                 $.ajax({
                     type: 'get',
-                    url: '/fetchseat',
+                    url: '/fetchseat/'+trip_id,
                     success: function (response) {
-                        $.get('/fetchseat', function ($unavailableSeat) {
+                        $.get('/fetchseat/'+trip_id, function ($unavailableSeat) {
                            
                             $unavailableSeat = $unavailableSeat.substring(0, $unavailableSeat.length - 1);
                             console.log($unavailableSeat);

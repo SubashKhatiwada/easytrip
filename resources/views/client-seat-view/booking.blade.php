@@ -4,6 +4,7 @@ if (isset($_POST['book'])) {
     $counter = $_POST["counter"];
     // echo "$counter";
     $total = $_POST["total"];
+    $trip_id = $_POST["trip_id"];
     // print_r("No of seat you booked: $counter <br>");
     // print_r("Total Booking Price: $total <br><br>");
 
@@ -67,7 +68,7 @@ if (isset($_POST['book'])) {
                 <label for="busNumber">Bus Number : &nbsp;</label>
                 <input type="text" name="busNumber"  style="border: none;" value="NA-1-PA-7777" readonly><br>
 
-                <input type="hidden" name="tripID"  style="border: none;" value="tri-0002" readonly>
+                <input type="hidden" name="tripID"  style="border: none;" value="<?php echo $trip_id?>" readonly>
 
                 <label for="selectedSeat"> No of seat selectd : &nbsp;</label>
                 <input type="number" name="seatCount"  style="border: none;" value="<?php echo $counter?>" readonly><br>

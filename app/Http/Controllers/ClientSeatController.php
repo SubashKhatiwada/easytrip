@@ -21,8 +21,8 @@ class ClientSeatController extends Controller
     public function index(Request $request,$value)
     {
             $trip_id=$value;
-            $booked_seat=DB::table('tbl_seat_info')->select('seat_id')
-                                ->where('trip_id',$trip_id)->get();
+            // $booked_seat=DB::table('tbl_seat_info')->select('seat_id')
+            //                     ->where('trip_id',$trip_id)->get();
                                 // return response()->json($booked_seat);
             // $seat_info=$value;
             $seat_map_obj=DB::table('tbl_admin_bus_seat_details')
@@ -33,12 +33,12 @@ class ClientSeatController extends Controller
             $seat_map_obj->toArray();
             $seat_map=$seat_map_obj[0]->seat_map;
             // return response($seat_map);
-            return response()->view('client-seat-view.seat',compact('seat_map','booked_seat'));
+            return response()->view('client-seat-view.seat',compact('seat_map','trip_id'));
        
         
     }
-    public function fetch(){
-        $booked_seat=DB::table('tbl_seat_info')->select('seat_id')
+    public function fetch($value){
+        $booked_seat=DB::table('tbl_seat_info')->select('seat_id')->where('trip_id',$value)
         // ->where('tbl_bus_trip_schedule.trip_id',$this->$trip_id)
         ->get();
 //        return view('client-seat-view.seat',compact('seat_info'));
@@ -46,5 +46,10 @@ class ClientSeatController extends Controller
         return response()->view('client-seat-view.fetchSeat',compact('booked_seat'));
     }
 
+
+    public function book(Request $request){
+        return $request;
+        return response()->view('client-seat-view.booking',compact('request'));
+    }
 
 }

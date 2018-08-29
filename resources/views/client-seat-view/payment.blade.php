@@ -8,6 +8,22 @@
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title></title>
+
+
+    <style>
+        .payment-container-wrapper{
+            height:auto;
+            overflow:auto;
+            -webkit-box-shadow: 0 7px 4px #777;
+	        -moz-box-shadow: 0 7px 4px #777;
+	        box-shadow: 0 7px 4px #777;
+        }
+
+        .panel-width{
+            padding-right:0 !important;
+            padding-left  :0 !important;
+        }
+    </style>
 </head>
 <body>
 <div class="container message-wrapper">
@@ -120,13 +136,49 @@
                 $delete = $mysqli->query($query);
             }
         }
-        echo '<div class="wraper"><div class="message-container"><div class="row"><div class="col-md-12 alert alert-success alert-dismissible"> <button type="button" class="close" data-dismiss="alert">&times;</button>'."$message".'</div></div></div></div>';
+        // echo '<div class="wraper"><div class="message-container"><div class="row"><div class="col-md-12 alert alert-success alert-dismissible"> <button type="button" class="close" data-dismiss="alert">&times;</button>'."$message".'</div></div></div></div>';
         $mysqli->close();
     }
     ?>
 </div>
+<div class="container">
+    <div class="row">
+        <div class="payment-container-wrapper">
+            <div class="col-xs-12 panel-width">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3>
+                            <span style="text text-danger">Choose Your payment Method</span>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12  col-md-4 col-sm-4 col-lg-4 payment-method">
+                <div class="col-xs-12 payment-title">
+                    <h2>
+                        <span>E-sewa</span>
+                    </h2>
+                </div>
+            </div>
+            <div class="col-xs-12  col-md-4 col-sm-4 col-lg-4 payment-method">
+                <div class="col-xs-12 payment-title">
+                    <h2>
+                        <span>Khalti</span>
+                    </h2>
+                </div>
+            </div>
+            <div class="col-xs-12  col-md-4 col-sm-4 col-lg-4 payment-method">
+                <div class="col-xs-12 payment-title">
+                    <h2>
+                        <span>Bank</span>
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <script type="text/javascript">
-    $(".message-container").attr("style","margin: 20px auto -24px; width: 60%;").fadeOut(50000);
+    $(".message-container").attr("style","margin: 20px auto -24px;").fadeOut(50000);
 </script>
 </body>
 </html>

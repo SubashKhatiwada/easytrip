@@ -45,7 +45,7 @@ Route::post('/updateschedule', 'ScheduleController@updateSchedule')->name('sched
 Route::get('/adminseat', 'AdminSeatController@index')->name('adminseat');
 Route::post('/adminseatlayout','AdminSeatController@addSeatLayout')->name('add.bus.seat.layout');
 Route::get('/seat/{value}', 'ClientSeatController@index')->name('client.seat');
-Route::get('/fetchseat', 'ClientSeatController@fetch')->name('client.seat.book');
+Route::get('/fetchseat/{value}', 'ClientSeatController@fetch')->name('client.seat.book');
 
 Route::post('/search', 'SearchController@searchBus')->name('search.bus');
 Route::get('/search', function () {
@@ -56,6 +56,8 @@ Route::post('/extendedsearch')->name('extendedSearch');
 Route::post('/booking', function () {
     return view('client-seat-view.booking');
 })->name('booking');
+
+// Route::post('/booking','ClientSeatController@book')->name('booking');
 
 Route::post('/payment', function () {
     return view('client-seat-view.payment');
